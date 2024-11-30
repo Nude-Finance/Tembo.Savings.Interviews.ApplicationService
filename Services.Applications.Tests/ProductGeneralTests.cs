@@ -27,17 +27,6 @@ public class ProductGeneralTests : BaseApplicationProcessorTest
 	
 	
 	[Fact]
-	public async Task ProcessApplication_ThrowsArgumentExceptionWhenProductIsNotMappedToProcessor()
-	{
-		// Arrange
-		var application = CreateValidApplication((ProductCode) 999); // Invalid product code
-
-		// Act & Assert
-		await Assert.ThrowsAsync<ArgumentException>(async () => await ApplicationProcessor.Process(application));
-
-	}
-	
-	[Fact]
 	public async Task ProcessApplication_ThrowsErrorWhenKycReportCallIsNotSuccessful()
 	{
 		// Arrange

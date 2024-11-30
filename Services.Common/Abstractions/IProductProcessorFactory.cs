@@ -4,5 +4,5 @@ using Model;
 
 public interface IProductProcessorFactory
 {
-	IProductProcessor? GetProcessor(ProductCode productCode);
+	IProductProcessor GetProcessor(ProductCode productCode);
 }

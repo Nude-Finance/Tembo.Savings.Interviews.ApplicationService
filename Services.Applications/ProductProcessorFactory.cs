@@ -28,9 +28,8 @@ public class ProductProcessorFactory : IProductProcessorFactory
 		);
 	}
 
-	public IProductProcessor? GetProcessor(ProductCode productCode)
+	public IProductProcessor GetProcessor(ProductCode productCode)
 	{
-		_processorMap.TryGetValue(productCode, out var processor);
-		return processor;
+		return _processorMap[productCode];
 	}
 }

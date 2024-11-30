@@ -9,11 +9,6 @@ public class ApplicationProcessor(IProductProcessorFactory productProcessorFacto
 	{
 		var productProcessor = productProcessorFactory.GetProcessor(application.ProductCode);
 
-		if (productProcessor == null)
-		{
-			throw new ArgumentException($"No processor available for ProductCode: {application.ProductCode}");
-		}
-
 		await productProcessor.ProcessAsync(application);
 	}
 }
