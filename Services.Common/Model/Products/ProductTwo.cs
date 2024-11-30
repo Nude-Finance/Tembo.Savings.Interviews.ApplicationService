@@ -2,7 +2,7 @@ using Services.Common.Abstractions.Abstractions;
 
 namespace Services.Common.Abstractions.Model.Products;
 
-public class ProductTwo : IProduct
+public struct ProductTwo : IProduct
 {
-    public static ProductCode ProductCode => ProductCode.ProductTwo;
+    public ProductCode ProductCode => ProductCode.ProductTwo;
 }

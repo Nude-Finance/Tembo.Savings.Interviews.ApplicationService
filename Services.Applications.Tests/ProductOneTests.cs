@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Moq;
+﻿using Moq;
 using Services.AdministratorOne.Abstractions;
 using Services.AdministratorOne.Abstractions.Model;
 using Services.Common.Abstractions.Model;

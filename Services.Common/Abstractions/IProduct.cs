@@ -4,5 +4,5 @@ namespace Services.Common.Abstractions.Abstractions;
 
 public interface IProduct
 {
-    public static abstract ProductCode ProductCode { get; }
+    public ProductCode ProductCode { get; }
 }

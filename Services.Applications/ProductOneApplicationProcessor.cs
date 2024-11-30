@@ -11,11 +11,11 @@ public class ProductOneApplicationProcessor(IAdministrationService administrator
 {
     private readonly IAdministrationService _administratorOneService = administratorOneService;
 
-    public Task Process(Application<ProductOne> application)
+    public Task<Result> Process(Application<ProductOne> application)
     {
         var createInvestorRequest = new CreateInvestorRequest();
         var createInvestorResponse = _administratorOneService.CreateInvestor(createInvestorRequest);
         
-        return Task.CompletedTask;
+        return Task.FromResult(Result.Success());
     }
 }
