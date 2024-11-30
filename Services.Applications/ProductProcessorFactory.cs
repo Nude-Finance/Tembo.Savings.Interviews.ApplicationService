@@ -16,11 +16,16 @@ public class ProductProcessorFactory : IProductProcessorFactory
 				.GroupBy(x => x.code)
 				.ToDictionary(
 					g => g.Key,
-					g => g.SingleOrDefault()?.processor 
-					     ?? throw new InvalidOperationException($"Duplicate processors detected for ProductCode '{g.Key}'. Ensure each ProductCode is supported by only one processor.")
-				)
+					g =>
+					{
+						if (g.Count() > 1)
+						{
+							throw new InvalidOperationException($"Duplicate processors detected for ProductCode '{g.Key}'. Ensure each ProductCode is supported by only one processor.");
+						}
+						return g.Single().processor;
+					}
+				)!
 		);
-
 	}
 
 	public IProductProcessor? GetProcessor(ProductCode productCode)

@@ -11,11 +11,21 @@ public class ProductValidatorFactory : IProductValidatorFactory
 	public ProductValidatorFactory(IEnumerable<IProductValidator> validators)
 	{
 		_validatorMap = new ConcurrentDictionary<ProductCode, IProductValidator>(
-			validators.ToDictionary(
-				validator => validator.SupportedProductCode,
-				validator => validator
-			)
+			validators
+				.GroupBy(validator => validator.SupportedProductCode)
+				.ToDictionary(
+					g => g.Key,
+					g =>
+					{
+						if (g.Count() > 1) 
+						{
+							throw new InvalidOperationException($"Duplicate validators detected for ProductCode '{g.Key}'. Ensure each ProductCode is supported by only one validator.");
+						}
+						return g.Single();
+					}
+				)!
 		);
+
 	}
 
 	public IProductValidator? GetValidator(ProductCode productCode)

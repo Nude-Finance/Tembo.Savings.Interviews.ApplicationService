@@ -13,6 +13,7 @@ CI CD is assumed to be implemented
 Decided to implement factory pattern to create the processor and validators, so that it can be easily extended in future.
 Put product code to validators and processor to make it more readable and maintainable, but this can be done in the factories as well.
 Decided to add a new event to handle validation fails and decided to publish this event in the application processor when process returns fail.
+It is always a good practice to cover third party calls by try catch block and implement a proper log mechanism to be able to track the flow more easily but since mentioned in the readme file I didnt implement any error handling. This mean I didnt need to catch AdministratorException from AdministratorOne 
 
 
 ## Observations
