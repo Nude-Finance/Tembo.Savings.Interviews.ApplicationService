@@ -1,12 +1,14 @@
+using MediatR;
+using Services.Applications.Commands;
 using Services.Common.Abstractions.Abstractions;
 using Services.Common.Abstractions.Model;
 
 namespace Services.Applications;
 
-public class ApplicationProcessor : IApplicationProcessor
+public class ApplicationProcessor(IMediator mediator) : IApplicationProcessor
 {
-    public Task Process(Application application)
+    public async Task ProcessAsync(Application application)
     {
-        throw new NotImplementedException();
+        await mediator.Publish(new HandleKycCommand(application));
     }
 }

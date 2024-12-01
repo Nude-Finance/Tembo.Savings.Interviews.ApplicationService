@@ -1,4 +1,4 @@
-using Services.Common.Abstractions.Model;
+using Services.Common.Abstractions.Model.Events;
 
 namespace Services.Common.Abstractions.Abstractions;
 

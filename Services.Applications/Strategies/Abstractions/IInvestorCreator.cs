@@ -1,8 +1,8 @@
 using Services.Common.Abstractions.Model;
 
-namespace Services.Applications.Abstractions;
+namespace Services.Applications.Strategies.Abstractions;
 
 public interface IInvestorCreator
 {
-    Task<string> CreateInvestorAsync(Application application);
+    Task<Guid> CreateInvestorAsync(Application application);
 }

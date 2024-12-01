@@ -1,6 +1,8 @@
+using Services.Common.Abstractions.Model;
+
 namespace Services.Applications.Strategies.Abstractions;
 
-public class IInvestorValidation
+public interface IInvestorValidation
 {
-    
+    void Validate(Application application);
 }

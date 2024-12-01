@@ -1,6 +1,5 @@
+using MediatR;
+
 namespace Services.Applications.Commands;
 
-public class SagaCompensationCommand
-{
-    
-}
+public record SagaCompensationCommand(Guid ApplicationId, string FailedStep, string Reason) : IRequest;

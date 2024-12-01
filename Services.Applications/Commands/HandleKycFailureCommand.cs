@@ -1,6 +1,4 @@
-namespace Services.Applications.Commands;
+using MediatR;
 
-public class HandleKycFailureCommand
-{
-    
-}
+namespace Services.Applications.Commands;
+public record HandleKycFailureCommand(Guid ApplicationId, Guid UserId, Guid ReportId) : IRequest;

@@ -1,6 +1,7 @@
+using MediatR;
+using Services.Common.Abstractions.Model;
+
 namespace Services.Applications.Commands;
 
-public class ProcessPaymentCommand
-{
-    
-}
+
+public record ProcessPaymentCommand(Guid AccountId, Guid ApplicationId, Payment Payment) : IRequest;
