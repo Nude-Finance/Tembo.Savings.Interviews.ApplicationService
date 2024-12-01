@@ -1,17 +1,35 @@
 using Services.AdministratorTwo.Abstractions;
+using Services.Applications.Abstractions;
 using Services.Common.Abstractions.Abstractions;
 using Services.Common.Abstractions.Model;
 using Services.Common.Abstractions.Model.Products;
 
-namespace Services.Applications;
+namespace Services.Applications.ApplicationProcessors;
 
-public class ProductTwoApplicationProcessor(IAdministrationService administratorTwoService)
+public class ProductTwoApplicationProcessor(
+    IApplicationValidator<ProductTwo> applicationValidator,
+    IKycService kycService,
+    IAdministrationService administratorTwoService)
     : IApplicationProcessor<ProductTwo>
 {
+    private readonly IApplicationValidator<ProductTwo> _applicationValidator = applicationValidator;
+    private readonly IKycService _kycService = kycService;
     private readonly IAdministrationService _administratorTwoService = administratorTwoService;
 
     public async Task<Result> Process(Application<ProductTwo> application)
     {
+        var validationResult = _applicationValidator.Validate(application);
+        if (!validationResult.IsSuccess)
+        {
+            return Result.Failure(validationResult.Error);
+        }
+
+        var kycResult = await _kycService.GetKycReportAsync(application.Applicant);
+        if (!kycResult.IsSuccess)
+        {
+            return Result.Failure(kycResult.Error);
+        }
+        
         var investorResult = await _administratorTwoService.CreateInvestorAsync(application.Applicant);
 
         if (!investorResult.IsSuccess)
