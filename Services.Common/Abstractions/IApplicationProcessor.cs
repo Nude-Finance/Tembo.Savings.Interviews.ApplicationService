@@ -2,7 +2,7 @@ using Services.Common.Abstractions.Model;
 
 namespace Services.Common.Abstractions.Abstractions;
 
-public interface IApplicationProcessor  
+public interface IApplicationProcessor<TProduct> where TProduct : struct, IProduct 
 {
-    Task Process(Application application);
+    Task<Result> Process(Application<TProduct> application);
 }
