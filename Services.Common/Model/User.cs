@@ -4,8 +4,8 @@ public class User
 {
     public Guid Id { get; init; }
     public bool? IsVerified { get; set; }
-    public string Forename { get; init; }
-    public string Surname { get; init; }
+    public string ForeName { get; init; }
+    public string SurName { get; init; }
     public DateOnly DateOfBirth { get; init; }
     public string Nino { get; init; }
     public Address[] Addresses { get; init; }

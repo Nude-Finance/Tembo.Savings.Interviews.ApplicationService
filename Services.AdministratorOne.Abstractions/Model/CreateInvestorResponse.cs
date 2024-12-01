@@ -1,6 +1,6 @@
 namespace Services.AdministratorOne.Abstractions.Model;
 
-public class CreateInvestorResponse
+public class CreateInvestorResponse 
 {
     public string Reference { get; set; }
     
