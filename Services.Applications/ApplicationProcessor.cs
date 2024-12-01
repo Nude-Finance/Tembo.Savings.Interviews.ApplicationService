@@ -3,10 +3,12 @@ using Services.Common.Abstractions.Model;
 
 namespace Services.Applications;
 
-public class ApplicationProcessor : IApplicationProcessor
+public class ApplicationProcessor(IProductProcessorFactory productProcessorFactory) : IApplicationProcessor
 {
-    public Task Process(Application application)
-    {
-        throw new NotImplementedException();
-    }
+	public async Task Process(Application application)
+	{
+		var productProcessor = productProcessorFactory.GetProcessor(application.ProductCode);
+
+		await productProcessor.ProcessAsync(application);
+	}
 }
