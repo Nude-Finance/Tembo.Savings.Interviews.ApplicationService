@@ -25,3 +25,4 @@
 
 ## Todo
 - add Directory.Build.props and Directory.Build.targets to the solution to enforce consistent settings across projects.
+- Update the rules to be configurable and not hardcoded
