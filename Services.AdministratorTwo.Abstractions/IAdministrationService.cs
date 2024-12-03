@@ -1,4 +1,4 @@
-using Services.Common.Abstractions.Model;
+using Services.Common.Model;
 
 namespace Services.AdministratorTwo.Abstractions;
 

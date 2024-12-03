@@ -1,3 +1,3 @@
-namespace Services.Common.Abstractions.Model;
+namespace Services.Common.Model;
 
 public record Money(string Currency, decimal Amount);

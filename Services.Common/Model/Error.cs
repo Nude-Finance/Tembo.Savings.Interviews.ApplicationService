@@ -1,6 +1,6 @@
-namespace Services.Common.Abstractions.Model;
+namespace Services.Common.Model;
 
 public sealed record Error(string System, string Code, string Description)
 {
-    public static readonly Error Empty = new(string.Empty, string.Empty, string.Empty);
+    public static readonly Error? Empty = new(string.Empty, string.Empty, string.Empty);
 }

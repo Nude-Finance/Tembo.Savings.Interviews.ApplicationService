@@ -1,4 +1,4 @@
-namespace Services.Common.Abstractions.Model;
+namespace Services.Common.Model;
 
 public class User
 {

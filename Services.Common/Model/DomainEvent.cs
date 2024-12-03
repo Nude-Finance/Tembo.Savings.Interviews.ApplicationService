@@ -1,4 +1,4 @@
-namespace Services.Common.Abstractions.Model;
+namespace Services.Common.Model;
 
 public abstract record DomainEvent;
 
@@ -8,4 +8,5 @@ public record AccountCreated(string InvestorId, ProductCode Product, string Acco
 
 public record KycFailed(Guid UserId, Guid ReportId) : DomainEvent;
 
+public record ApplicationNotValid(Guid ApplicationId, List<string> errors) : DomainEvent;
 public record ApplicationCompleted(Guid ApplicationId) : DomainEvent;

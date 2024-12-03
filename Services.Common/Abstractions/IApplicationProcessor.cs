@@ -1,6 +1,6 @@
-using Services.Common.Abstractions.Model;
+using Services.Common.Model;
 
-namespace Services.Common.Abstractions.Abstractions;
+namespace Services.Common.Abstractions;
 
 public interface IApplicationProcessor  
 {
