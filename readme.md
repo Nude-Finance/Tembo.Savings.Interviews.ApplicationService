@@ -40,7 +40,7 @@ The goal of this exercise is to process Applications for both Products, ensuring
   - But you might need to stub or mock them in your tests.
 - You may add new projects to the solution, and add appropriate nuget references.
 - You may change and add new types defined in `Services.Common.Model`. But, because this library is shared within the company, you'll need to justify your decision.
-- The exercise shouldn't take too hours.  Don't implement:
+- The exercise shouldn't take too long.  Don't implement:
     - Simple validation (required, min-length etc).
     - Argument checking
     - Logging
